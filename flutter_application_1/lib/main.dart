@@ -11,122 +11,95 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(scaffoldBackgroundColor: const Color(0xFFF2F2F2)),
-      home: const ProfileScreen(),
+      title: 'My Profile',
+      theme: ThemeData(primarySwatch: Colors.indigo),
+      home: const ProfilePage(),
     );
   }
 }
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'My Profile',
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
+        title: const Text('My Profile'),
         centerTitle: true,
-        backgroundColor: Colors.black,
       ),
+
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Profile Picture with Checkmark Badge
-            Center(
-              child: Stack(
-                alignment: Alignment.bottomRight,
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.white,
-                    child: CircleAvatar(
-                      radius: 46,
-                      // Replace with AssetImage or NetworkImage as needed
-                      backgroundImage: const NetworkImage(
-                        'https://via.placeholder.com/150',
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(2),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.check_circle,
-                      color: Colors.green,
-                      size: 28,
-                    ),
-                  ),
-                ],
+            const Center(
+              child: CircleAvatar(
+                radius: 55,
+                child: Icon(Icons.person, size: 70),
               ),
             ),
-            const SizedBox(height: 20),
 
-            // Divider Line
-            const Divider(color: Colors.black87, thickness: 1),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
 
-            // Name Section
+            const Divider(),
+
+            const SizedBox(height: 10),
+
             const Text(
               'Name',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 4),
-            const Text(
-              'Nathashi',
-              style: TextStyle(fontSize: 15, color: Colors.black87),
-            ),
-            const SizedBox(height: 20),
 
-            // Email Section
+            const SizedBox(height: 5),
+
+            const Text('Diluka', style: TextStyle(fontSize: 17)),
+
+            const SizedBox(height: 25),
+
             const Text(
               'Email',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 6),
+
+            const SizedBox(height: 8),
+
             const Row(
               children: [
-                Icon(Icons.email, size: 18),
-                SizedBox(width: 8),
-                Text(
-                  'aknalwis@ac.nsbm.students.lk',
-                  style: TextStyle(fontSize: 15, color: Colors.black87),
-                ),
+                Icon(Icons.email),
+                SizedBox(width: 12),
+                Text('diluka.w@nsbm.ac.lk', style: TextStyle(fontSize: 17)),
               ],
             ),
-            const SizedBox(height: 20),
 
-            // Points Section
+            const SizedBox(height: 25),
+
             const Text(
               'Points',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 6),
+
+            const SizedBox(height: 8),
+
             const Row(
               children: [
-                Icon(Icons.star, size: 18),
-                SizedBox(width: 8),
-                Text(
-                  '0',
-                  style: TextStyle(fontSize: 15, color: Colors.black87),
-                ),
+                Icon(Icons.star),
+                SizedBox(width: 12),
+                Text('0', style: TextStyle(fontSize: 17)),
               ],
             ),
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Colors.black,
-        shape: const CircleBorder(),
-        child: const Icon(Icons.add, color: Colors.white),
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
+        child: const Icon(Icons.add),
       ),
     );
   }
